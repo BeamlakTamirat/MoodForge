@@ -1,16 +1,21 @@
-# mood_tracker
+# Mood Tracker
 
-A new Flutter project.
+A minimal but professional Flutter app to track daily moods with emojis + notes.
 
-## Getting Started
+## Tech stack
+- Flutter 3.24
+- Riverpod (state management)
+- Hive (local DB)
+- Material 3 (UI)
 
-This project is a starting point for a Flutter application.
+## Folder structure
+- lib/models → data models
+- lib/state → app state
+- lib/services → storage
+- lib/ui/screens → screens
+- lib/ui/widgets → reusable widgets
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Features
+- Add daily moods
+- Emoji picker
+- Persist data locally (offline first)
