@@ -2,34 +2,35 @@ name: Flutter CI
 
 on:
   push:
-    branches:
-      - main
-      - dev
+    branches: [ main, dev ]
   pull_request:
-    branches:
-      - main
-      - dev
+    branches: [ main, dev ]
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v3
+  build:
+    runs-on: ubuntu-latest
 
-            - name: Setup Flutter
-              uses: subosito/flutter-action@v2
-              with:
-                flutter-version: '3.35.3'
-            
-            - name: Install dependencies
-              run: flutter pub get
-              working-directory: ./apps/mood_tracker
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-            - name: Analyze
-              run: flutter analyze
-              working-directory: ./apps/mood_tracker
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.35.3'
+          channel: 'stable'
 
-            - name: Test
-              run: flutter test
-              working-directory: ./apps/mood_tracker
+      - name: Flutter version check
+        run: flutter --version
+
+      - name: Install dependencies
+        run: flutter pub get
+        working-directory: ./apps/mood_tracker
+
+      - name: Analyze
+        run: flutter analyze
+        working-directory: ./apps/mood_tracker
+
+      - name: Test
+        run: flutter test
+        working-directory: ./apps/mood_tracker
