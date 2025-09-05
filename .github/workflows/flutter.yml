@@ -24,12 +24,12 @@ jobs:
             
             - name: Install dependencies
               run: flutter pub get
-              working-directory: MoodForge
+              working-directory: ./apps/mood_tracker
 
             - name: Analyze
               run: flutter analyze
-              working-directory: MoodForge
+              working-directory: ./apps/mood_tracker
 
             - name: Test
               run: flutter test
-              working-directory: MoodForge
+              working-directory: ./apps/mood_tracker
