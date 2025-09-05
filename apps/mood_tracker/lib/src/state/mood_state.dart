@@ -1,8 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../data/local/hive_service.dart';
-import '../data/models/mood.dart';
-
+import 'package:mood_tracker/src/data/local/hive_service.dart';
+import 'package:mood_tracker/src/data/models/mood.dart';
 final moodStateProvider =
     ChangeNotifierProvider<MoodState>((ref) => MoodState());
 

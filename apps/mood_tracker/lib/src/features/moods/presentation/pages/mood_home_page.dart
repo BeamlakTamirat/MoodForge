@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../../../src/state/mood_state.dart';
-import '../../../../../src/data/models/mood.dart';
+import 'package:mood_tracker/src/state/mood_state.dart';
+import 'package:mood_tracker/src/data/models/mood.dart';
 
 class MoodHomePage extends ConsumerWidget {
   const MoodHomePage({super.key});

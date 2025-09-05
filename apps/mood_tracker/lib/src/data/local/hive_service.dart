@@ -1,5 +1,6 @@
 import 'package:hive_flutter/hive_flutter.dart';
-import '../models/mood.dart';
+import 'package:mood_tracker/src/data/models/mood.dart';
+import 'package:flutter/foundation.dart';
 
 class HiveService {
   static const String moodsBoxName = 'moods_box';
@@ -27,7 +28,12 @@ class HiveService {
     try {
       await box.put(key, mood);
     } catch (e) {
-      print('HiveService.addMood failed with key=$key : $e — falling back to box.add()');
+      if (kDebugMode) {
+        debugPrint(
+          'HiveService.addMood failed with key=$key : $e — falling back to box.add()',
+        );
+      }
+
       await box.add(mood);
     }
   }
