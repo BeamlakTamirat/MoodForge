@@ -126,7 +126,7 @@ class MoodHomePage extends ConsumerWidget {
 class _MoodCard extends StatelessWidget {
   final Mood mood;
   final VoidCallback onDelete;
-  const _MoodCard({required this.mood, required this.onDelete, super.key});
+  const _MoodCard({required this.mood, required this.onDelete, Key?key}): super(key: key);
 
   @override
   Widget build(BuildContext context) {

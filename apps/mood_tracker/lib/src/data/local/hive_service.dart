@@ -48,7 +48,11 @@ class HiveService {
     try {
       await box.delete(id);
     } catch (e) {
-      print('HiveService.deleteMood: failed to delete by numeric key $id: $e');
+      if (kDebugMode) {
+        debugPrint(
+          'HiveService.deleteMood: failed to delete by numeric key $id: $e',
+        );
+      }
     }
   }
 
