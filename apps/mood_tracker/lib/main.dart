@@ -1,25 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:mood_tracker/ui/screens/mood_home_screen.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mood_tracker/src/app.dart';
+import 'package:mood_tracker/src/data/local/hive_service.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Hive.initFlutter();
-  await Hive.openBox('moods');
-  runApp(const MoodApp());
-}
+  
+  await HiveService.registerAdapters();
 
-class MoodApp extends StatelessWidget {
-  const MoodApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Mood Tracker',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
-      ),
-      home: const MoodHomeScreen(),
-    );
-  }
+  runApp(const ProviderScope(child: MoodApp()));
 }
